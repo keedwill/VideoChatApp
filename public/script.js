@@ -6,8 +6,9 @@ const myVideo = document.createElement("video");
 myVideo.muted = true;
 
 var peer = new Peer(undefined, {
+  secure: true,
   path: "/peerjs",
-  host: "/",
+  host: "https://princevideocall.herokuapp.com/",
   port: "443",
 });
 
@@ -79,7 +80,6 @@ const scrollToBottom = () => {
   d.scrollTop(d.prop("scrollHeight"));
 };
 
-
 //mute our video
 const muteUnmute = () => {
   const enabled = myVidStream.getAudioTracks()[0].enabled;
@@ -92,21 +92,21 @@ const muteUnmute = () => {
   }
 };
 
-const setMuteButton=()=>{
+const setMuteButton = () => {
   const html = `<i class="fas fa-microphone"></i>
-  <span>Mute</span>`
-  document.querySelector('.mute-button').innerHTML = html
-}
+  <span>Mute</span>`;
+  document.querySelector(".mute-button").innerHTML = html;
+};
 
-const setUnmuteButton=()=>{
+const setUnmuteButton = () => {
   const html = `<i class="unmute fas fa-microphone-slash"></i>
-  <span>Unmute</span>`
-  document.querySelector('.mute-button').innerHTML = html
-}
+  <span>Unmute</span>`;
+  document.querySelector(".mute-button").innerHTML = html;
+};
 
 //stop video
 
-const playStop=()=>{
+const playStop = () => {
   const enabled = myVidStream.getVideoTracks()[0].enabled;
   if (enabled) {
     myVidStream.getVideoTracks()[0].enabled = false;
@@ -115,19 +115,16 @@ const playStop=()=>{
     setStopVideo();
     myVidStream.getVideoTracks()[0].enabled = true;
   }
-}
+};
 
-const setStopVideo=()=>{
+const setStopVideo = () => {
   const html = `<i class=" fas fa-video-slash"></i>
-  <span>Stop Video</span>`
-  document.querySelector('.video-button').innerHTML = html
-}
+  <span>Stop Video</span>`;
+  document.querySelector(".video-button").innerHTML = html;
+};
 
-
-
-
-const setPlayVideo=()=>{
+const setPlayVideo = () => {
   const html = `<i class="stop fas fa-video-slash"></i>
-  <span>Play Video</span>`
-  document.querySelector('.video-button').innerHTML = html
-}
+  <span>Play Video</span>`;
+  document.querySelector(".video-button").innerHTML = html;
+};
